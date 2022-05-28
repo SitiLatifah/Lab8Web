@@ -255,7 +255,7 @@ if (isset($_POST['submit'])) {
 </html>
 ```
 kemudian membuat file dengan nama style_tambah.css untuk memperindah tampilan, Sintaxnya seperti berikut
-`` css
+``` css
 .container {
   margin: 30px 20px;
   background-color: #f0f0f0;
