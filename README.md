@@ -12,8 +12,8 @@
 2. Pastikan webserver Apache dan MySQL server sudah dijalankan. Kemudian buka melalui browser: http://localhost
 3. dan simpan file website tempatkan di direktori: \xampp\htdocs\
 
-## Membuat Database
-Disini saya membuatnya menggunakan CMD
+## Membuat Database 
+Disini saya membuatnya menggunakan CMD <br>
 ![Screenshot (288)](https://user-images.githubusercontent.com/73010098/170830157-fd5aae6a-e3f2-4826-ba5c-0b7feb0c3bf8.png)
 
 ## Membuat Table
