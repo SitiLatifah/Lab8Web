@@ -114,7 +114,8 @@ $result = mysqli_query($conn, $sql);
 </body>
 </html>
 ```
-kemudian membuat file dengan nama style_index.css untuk memperindah tampilan, Sintaxnya seperti berikut
+kemudian membuat file dengan nama style_index.css untuk memperindah tampilan, Sintaxnya seperti berikut.
+
 ``` css
 .container {
   margin: 30px 20px;
