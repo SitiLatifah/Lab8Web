@@ -172,7 +172,7 @@ tr:hover {
 }
 ```
 ## OUTPUT
-![Screenshot (295)](https://user-images.githubusercontent.com/73010098/170834604-646d9651-c728-4afd-9536-0a915cab2486.png)
+![Screenshot (310)](https://user-images.githubusercontent.com/73010098/171168935-a489b820-c124-47eb-955c-a9261e9e0a36.png)
 
 ## Menambah Data (Create)
 Buat file baru dengan nama tambah.php
@@ -318,6 +318,211 @@ label {
 ```
 ## OUTPUT
 ![Screenshot (297)](https://user-images.githubusercontent.com/73010098/170835374-d560dd5d-8d20-4e6a-9d18-b890855b808a.png)
+
+
+## MMengubah Data (Update)
+Buat file baru dengan nama ubah.php
+``` php
+<?php
+    error_reporting(E_ALL);
+    include_once 'konek.php';
+
+    if (isset($_POST['submit']))
+    {
+        $id = $_POST['id'];
+        $nama = $_POST['nama'];
+        $kategori = $_POST['kategori'];
+        $harga_jual = $_POST['harga_jual'];
+        $harga_beli = $_POST['harga_beli'];
+        $stok = $_POST['stok'];
+        $file_gambar = $_FILES['file_gambar'];
+        $gambar = null;
+    
+        if ($file_gambar['error'] == 0)
+        {
+            $filename = str_replace(' ', '_', $file_gambar['name']);
+            $destination = dirname(__FILE__) . '/gambar/' . $filename;
+            if (move_uploaded_file($file_gambar['tmp_name'], $destination))
+            {
+            $gambar = 'gambar/' . $filename;;
+            }
+        }
+        $sql = 'UPDATE data_barang SET ';
+        $sql .= "nama = '{$nama}', kategori = '{$kategori}', ";
+        $sql .= "harga_jual = '{$harga_jual}', harga_beli = '{$harga_beli}', stok = '{$stok}' ";
+
+        if (!empty($gambar))
+
+        $sql .= ", gambar = '{$gambar}' ";
+        $sql .= "WHERE id_barang = '{$id}'";
+        $result = mysqli_query($conn, $sql);
+
+        header('location: index.php');
+    }
+    $id_barang = $_GET['id_barang'];
+    $sql = "SELECT * FROM data_barang WHERE id_barang = '{$id_barang}'";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) die('Error: Data tidak tersedia');
+    $data = mysqli_fetch_array($result);
+
+    function is_select($var, $val) {
+        if ($var == $val) return 'selected="selected"';
+        return false;
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style_ubah.css" rel="stylesheet" type="text/css" />
+    <title>UBAH BARANG</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Ubah Barang</h1>
+        <div class="main">
+            <form method="post" action="ubah.php" enctype="multipart/form-data">
+                <div class="input">
+                    <label>Nama Barang</label>
+                    <input class="nama" type="text" name="nama" value="<?php echo $data['nama'];?>" />
+                </div>
+                <div class="input">
+                    <label>Kategori</label>
+                    <select name="kategori" class="kategori">
+                        <option <?php echo is_select('Komputer', $data['kategori']);?> value="Komputer">Komputer</option>
+                        <option <?php echo is_select('Komputer', $data['kategori']);?> value="Elektronik">Elektronik</option>
+                        <option <?php echo is_select('Komputer', $data['kategori']);?> value="Hand Phone">Hand Phone</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <label>Harga Jual</label>
+                    <input class="harga_jual" type="text" name="harga_jual" value="<?php echo $data['harga_jual'];?>" />
+                </div>
+                <div class="input">
+                    <label>Harga Beli</label>
+                    <input class="harga_beli" type="text" name="harga_beli" value="<?php echo $data['harga_beli'];?>" />
+                </div>
+                <div class="input">
+                    <label>Stok</label>
+                    <input class="stok" type="text" name="stok" value="<?php echo $data['stok'];?>" />
+                </div>
+                <div class="input">
+                    <label>File Gambar</label>
+                    <input class="file" type="file" name="file_gambar" />
+                </div>
+                <div class="submit">
+                <input type="hidden" name="id" value="<?php echo $data['id_barang'];?>" />
+                    <input class="button" type="submit" name="submit" value="Simpan" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+```
+kemudian membuat file dengan nama style_ubah.css untuk memperindah tampilan, Sintaxnya seperti berikut
+``` css
+.container {
+  margin: 30px 20px;
+  background-color: #f0f0f0;
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 5px;
+}
+
+h1 {
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
+.main {
+  padding-left: 40px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  padding-right: 40px;
+}
+
+.input {
+  padding-top: 20px;
+}
+
+.nama {
+  margin-left: 20px;
+}
+
+.kategori {
+  margin-left: 51px;
+}
+
+.harga_jual {
+  margin-left: 38px;
+}
+
+.harga_beli {
+  margin-left: 38px;
+}
+
+.stok {
+  margin-left: 76px;
+}
+
+.file {
+  margin-left: 25px;
+}
+
+.submit {
+  padding-top: 30px;
+}
+
+label {
+  padding: 8px 8px 8px 0;
+  display: inline-block;
+}
+
+.button {
+  background-color: #5f9ea0;
+  border-radius: 5px;
+  color: black;
+  border: none;
+  padding: 13px 25px;
+  text-align: center;
+  font-size: 13px;
+  margin-left: 200px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 1;
+}
+```
+## OUTPUT
+![Screenshot (311)](https://user-images.githubusercontent.com/73010098/171170795-b8e5718c-4f1f-4cac-9680-ceda658300f8.png)
+
+## Menghapus Data (Delete)
+Buat file baru dengan nama hapus.php
+``` php
+<?php
+    include_once 'konek.php';
+    $id = $_GET['id_barang'];
+    $sql = "DELETE FROM data_barang WHERE id_barang = '{$id}'";
+    $result = mysqli_query($conn, $sql);
+    header('location: index.php');
+?>
+```
+Menghapus data barang dengan cara klik hapus pada kolom aksi data barang yang ingin dihapus.
+Menghapus data barang dengan ID 2.
+
+## OUTPUT
+![Screenshot (314)](https://user-images.githubusercontent.com/73010098/171171400-efbef04f-6eac-4711-b39f-93f2e8467f8c.png)
+
+
+
 
 
 
