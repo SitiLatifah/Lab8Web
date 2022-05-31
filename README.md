@@ -317,8 +317,11 @@ label {
 }
 ```
 ## OUTPUT
-![Screenshot (297)](https://user-images.githubusercontent.com/73010098/170835374-d560dd5d-8d20-4e6a-9d18-b890855b808a.png)
+jika ingin menambahkan Data Barang klik Tambah Barang di pojok Atas
+![Screenshot (319)](https://user-images.githubusercontent.com/73010098/171185950-889fcad1-9fd2-4a2d-b2d6-7dbdbe882fc8.png)
 
+Lalu akan muncul Barang yang ditambahkan, Seperti di bawah ini
+![Screenshot (320)_LI](https://user-images.githubusercontent.com/73010098/171186360-4f418c70-6763-4f06-807c-732825389ee7.jpg)
 
 ## MMengubah Data (Update)
 Buat file baru dengan nama ubah.php
@@ -502,7 +505,11 @@ label {
 }
 ```
 ## OUTPUT
-![Screenshot (311)](https://user-images.githubusercontent.com/73010098/171170795-b8e5718c-4f1f-4cac-9680-ceda658300f8.png)
+Jika ingin mengubah data, klik ubah pada kolom Aksi lalu Ubah data seperti contoh dibawah ini.
+![Screenshot (316)](https://user-images.githubusercontent.com/73010098/171183072-e2ff8920-6307-4b02-9dec-81e19f4329c1.png)
+
+lalu akan Ter Ubah Datanya Seperti di bawah ini
+![Screenshot (318)_LI](https://user-images.githubusercontent.com/73010098/171184956-bb2f32f5-0de9-4b9e-b429-23bcf04a5f76.jpg)
 
 ## Menghapus Data (Delete)
 Buat file baru dengan nama hapus.php
@@ -516,10 +523,11 @@ Buat file baru dengan nama hapus.php
 ?>
 ```
 Menghapus data barang dengan cara klik hapus pada kolom aksi data barang yang ingin dihapus.
-Menghapus data barang dengan ID 2.
+Menghapus data barang dengan ID 2,3,4, Dan 5.
 
 ## OUTPUT
 ![Screenshot (314)](https://user-images.githubusercontent.com/73010098/171171400-efbef04f-6eac-4711-b39f-93f2e8467f8c.png)
+
 
 
 
