@@ -9,6 +9,7 @@
 1. Pastikan MySQL Server sudah dapat dijalankan melalui XAMPP.
 
 ![Screenshot (289)_LI](https://user-images.githubusercontent.com/73010098/170829921-222d1b9a-02c7-4591-be24-85f4b6e86dbd.jpg)
+
 2. Pastikan webserver Apache dan MySQL server sudah dijalankan. Kemudian buka melalui browser: http://localhost
 3. dan simpan file website tempatkan di direktori: \xampp\htdocs\
 
