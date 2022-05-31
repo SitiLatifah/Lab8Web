@@ -324,7 +324,7 @@ jika ingin menambahkan Data Barang klik Tambah Barang di pojok Atas
 Lalu akan muncul Barang yang ditambahkan, Seperti di bawah ini
 ![Screenshot (320)_LI](https://user-images.githubusercontent.com/73010098/171186360-4f418c70-6763-4f06-807c-732825389ee7.jpg)
 
-## MMengubah Data (Update)
+## Mengubah Data (Update)
 Buat file baru dengan nama ubah.php
 ``` php
 <?php
@@ -528,6 +528,11 @@ Menghapus data barang dengan ID 2,3,4, Dan 5.
 
 ## OUTPUT
 ![Screenshot (314)](https://user-images.githubusercontent.com/73010098/171171400-efbef04f-6eac-4711-b39f-93f2e8467f8c.png)
+
+Maka Data Barang Akan terhapus
+![Screenshot (321)](https://user-images.githubusercontent.com/73010098/171187083-52a1a582-6281-48b9-a8b2-7bd6c5d632f9.png)
+
+# selesai :)
 
 
 
